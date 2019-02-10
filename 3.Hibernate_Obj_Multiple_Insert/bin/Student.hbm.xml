@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.model.Student" table="Student_Info">
+		<id name="sid" column="Emp_Id" length="10"></id>
+		<property name="name" column="Name" length="10"/>
+		<property name="email" column="Email" length="25"/>
+		
+		<component name="school_ad" class="com.model.Adress" >
+		<property name="street" column="Street" length="10"></property>
+		<property name="city" column="City" length="10"></property>
+		<property name="state" column="State" length="15"></property>
+		<property name="pincode" column="PinCode" length="10"></property>
+		</component>
+		
+		<component name="res_ad" class="com.model.Adress" >
+		<property name="street" column="R_Street" length="10"></property>
+		<property name="city" column="R_City" length="10"></property>
+		<property name="state" column="R_State" length="15"></property>
+		<property name="pincode" column="R_PinCode" length="10"></property>
+		</component>
+		
+	</class>
+</hibernate-mapping>
