@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.model.Customer" table="Customer_Info">
+		<id name="id" column="Cust_Id_" length="10">
+		</id>
+
+		<property name="name" column="CustName" length="25"></property>
+		<property name="salary" column="Salary" length="8"></property>
+		<set name="details" table="Cust_Details">
+			<key column="CustomerId"></key>
+			<element column="Details" type="java.lang.String"></element>
+		</set>
+	</class>
+
+</hibernate-mapping>

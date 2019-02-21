@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.model.Customer" table="Customer_Info">
+		<id name="id" column="Cust_Id_" length="10">
+		</id>
+
+		<property name="name" column="CustName" length="25"></property>
+		<property name="salary" column="Salary" length="8"></property>
+
+		<list name="details" table="Cust_Adress1">
+			<key column="CustomerName" property-ref="name"></key>
+			<index column="test"></index>
+			<composite-element class="com.model.Adress">
+				<property name="street" column="Road" length="25"></property>
+				<property name="State" column="State" length="25"></property>
+				<property name="City" column="City" length="25"></property>
+				<property name="pincode" column="COde" length="25"></property>
+
+			</composite-element>
+
+		</list>
+	</class>
+
+</hibernate-mapping>
