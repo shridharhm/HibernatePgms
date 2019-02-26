@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.model.Student" table="StudentPgm10">
+		<id name="id" length="10"></id>
+		<property name="name" length="10" />
+		<property name="college" length="15" />
+		
+		<set name="ads" table="SkillSet">
+		<key column="T1" property-ref="name" ></key>
+		<composite-element class="com.model.Adress">
+		<property name="street" column="Street" length="10"></property>
+		<property name="city" column="City" length="10"></property>
+		<property name="state" column="State" length="15"></property>
+		<property name="pincode" column="PinCode" length="10"></property>
+		</composite-element>
+		
+				
+		<!-- <element column="Skills" type="string" length="10"></element> -->
+		</set>
+	</class>
+
+</hibernate-mapping>
+

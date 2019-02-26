@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.model.Employee" table="Emp_Info" discriminator-value="Empl">
+		<id name="id" column="Emp_Id" length="5"></id>
+		<discriminator column="Role" ></discriminator>
+		<property name="name" column="Emp_Name" length="15" />
+		<property name="email" column="Email" length="25" />
+		
+		<subclass name="com.model.Developer" discriminator-value="Dev">
+			<property name="progLang" column="Technology" length="15"></property>
+			<property name="ide" column="IDE" length="15"></property>
+		</subclass>
+
+		<subclass name="com.model.Tester" discriminator-value="Tester">
+			<property name="testType" column="TestType" length="15"></property>
+		</subclass>
+	</class>
+</hibernate-mapping>

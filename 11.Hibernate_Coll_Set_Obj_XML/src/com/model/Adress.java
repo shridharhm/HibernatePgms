@@ -1,18 +1,10 @@
 package com.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
-@Embeddable
 public class Adress 
 {
-	@Column(name="Raste",length=25)
 	private String street;
-	@Column(name="Ooru",length=25)
 	private String City;
-	@Column(name="Rajya",length=25)
 	private String State;
-	@Column(name="Code",length=25)
 	private String pincode;
 	
 	public Adress() {
