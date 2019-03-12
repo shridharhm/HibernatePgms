@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.model.Employee">
+		<id name="id" column="Emp_Id" length="5"></id>
+		<property name="name" column="Emp_Name" length="15" />
+		<property name="email" column="Email" length="25" />
+		
+		<joined-subclass name="com.model.Developer" >
+			<key column="Emp_Id"></key>
+			<property name="progLang" column="Technology" length="15"></property>
+			<property name="ide" column="IDE" length="15"></property>
+		</joined-subclass>
+
+		<joined-subclass name="com.model.Tester" >
+			<key column="Employee_Id"></key>
+			<property name="testType" column="TestType" length="15"></property>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>
